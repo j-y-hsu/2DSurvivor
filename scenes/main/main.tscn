@@ -1,16 +1,20 @@
-[gd_scene load_steps=10 format=3 uid="uid://dcq7h26v0y4tn"]
+[gd_scene load_steps=12 format=3 uid="uid://dcq7h26v0y4tn"]
 
 [ext_resource type="TileSet" uid="uid://dxx3prorus2tt" path="res://resources/tileset.tres" id="1_0mpej"]
 [ext_resource type="PackedScene" uid="uid://batms0egtw7hn" path="res://scenes/game_object/game_camera/game_camera.tscn" id="1_3cf8n"]
 [ext_resource type="PackedScene" uid="uid://0qutr5t4h01g" path="res://scenes/ui/arena_time_ui.tscn" id="1_i4aw3"]
 [ext_resource type="PackedScene" uid="uid://c1ne53qgdycyo" path="res://scenes/game_object/player/player.tscn" id="1_mgoa5"]
 [ext_resource type="PackedScene" uid="uid://ckdrxxyoja15w" path="res://scenes/manager/enemy_manager.tscn" id="1_ufa5u"]
+[ext_resource type="Script" path="res://scenes/main/main.gd" id="1_ukdv1"]
 [ext_resource type="PackedScene" uid="uid://ctgvur2dquoxh" path="res://scenes/manager/arena_time_manager.tscn" id="2_kog2g"]
 [ext_resource type="PackedScene" uid="uid://bhsxhdru0kw4v" path="res://scenes/ui/experience_bar.tscn" id="2_po1a6"]
+[ext_resource type="PackedScene" uid="uid://e3d2n0nhppqf" path="res://scenes/ui/end_screen.tscn" id="2_ryflk"]
 [ext_resource type="PackedScene" uid="uid://dpiwhhc20myl" path="res://scenes/manager/experience_manager.tscn" id="4_natm1"]
 [ext_resource type="PackedScene" uid="uid://cuitif8b54es2" path="res://scenes/manager/upgrade_manager.tscn" id="6_owtbw"]
 
 [node name="Main" type="Node"]
+script = ExtResource("1_ukdv1")
+end_screen_scene = ExtResource("2_ryflk")
 
 [node name="ArenaTimeUI" parent="." node_paths=PackedStringArray("arena_time_manager") instance=ExtResource("1_i4aw3")]
 arena_time_manager = NodePath("../ArenaTimeManager")
@@ -39,6 +43,7 @@ layer_0/tile_data = PackedInt32Array(917524, 0, 4, 851988, 0, 4, 786452, 0, 4, 7
 y_sort_enabled = true
 
 [node name="Player" parent="Entities" instance=ExtResource("1_mgoa5")]
+unique_name_in_owner = true
 position = Vector2(327, 191)
 
 [node name="Foreground" type="Node2D" parent="." groups=["foreground_layer"]]
