@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8t23vqjc8cbt"]
+[gd_scene load_steps=5 format=3 uid="uid://b8t23vqjc8cbt"]
 
 [ext_resource type="Script" path="res://scenes/ui/options_menu.gd" id="1_kor4i"]
 [ext_resource type="TileSet" uid="uid://dxx3prorus2tt" path="res://resources/tileset.tres" id="2_4wbyp"]
+[ext_resource type="PackedScene" uid="uid://dw0n1mdq08bw6" path="res://scenes/ui/vignette.tscn" id="2_7wnyi"]
 [ext_resource type="PackedScene" uid="uid://ldtr3d2payl6" path="res://scenes/ui/sound_button.tscn" id="3_48qf3"]
 
 [node name="OptionsMenu" type="CanvasLayer"]
+layer = 2
 script = ExtResource("1_kor4i")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -40,6 +42,7 @@ theme_override_constants/separation = 24
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
 theme_override_font_sizes/font_size = 32
 text = "Options"
 horizontal_alignment = 1
@@ -54,6 +57,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/SFXOptionContainer"]
 layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
 text = "SFX Volume"
 
 [node name="SFXSlider" type="HSlider" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/SFXOptionContainer"]
@@ -67,6 +71,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MusicOptionContainer"]
 layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
 text = "Music Volume"
 
 [node name="MusicSlider" type="HSlider" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MusicOptionContainer"]
@@ -80,6 +85,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/WindowOptionContainer"]
 layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
 text = "Window Mode"
 
 [node name="WindowButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/WindowOptionContainer" instance=ExtResource("3_48qf3")]
@@ -94,3 +100,6 @@ custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Back"
+
+[node name="Vignette" parent="." instance=ExtResource("2_7wnyi")]
+layer = 3
